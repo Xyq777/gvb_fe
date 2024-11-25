@@ -30,53 +30,83 @@ const router = createRouter({
       path: "/admin",
       name: "admin",
       component: admin,
+      meta:{
+        title:"后台管理"
+      },
       children: [
         {
           path: "",
           name: "home",
           component: home,
+          meta:{
+            title:"首页"
+          },
         },
         {
           path: "user_center",
           name: "user_center",
+          meta:{
+            title:"用户中心"
+          },
           children: [
             {
               path: "user_info",
               name: "user_info",
               component: userInfo,
+              meta:{
+                title:"用户信息"
+              },
             }
           ]
         },
         {
           path: "article",
           name: "article",
+          meta:{
+            title:"文章中心"
+          },
           children: [
             {
               path: "article_list",
               name: "article_list",
               component: articleList,
+              meta:{
+                title:"文章列表"
+              },
             }
           ]
         },
         {
           path: "users",
           name: "users",
+          meta:{
+            title:"用户管理"
+          },
           children: [
             {
               path: "user_list",
               name: "user_list",
               component:userList,
+              meta:{
+                title:"用户列表"
+              },
             }
           ]
         },
         {
           path: "system",
           name: "system",
+          meta:{
+            title:"系统设置"
+          },
           children: [
             {
               path: "menu_list",
               name: "menu_list",
               component: menuList,
+              meta:{
+                title:"菜单列表"
+              },
             }
           ]
         },

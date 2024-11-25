@@ -38,9 +38,7 @@
       <div class="gvb_head">
         <div class="gvb_bread_crumb">
           <a-breadcrumb>
-            <a-breadcrumb-item>Home</a-breadcrumb-item>
-            <a-breadcrumb-item>Channel</a-breadcrumb-item>
-            <a-breadcrumb-item>News</a-breadcrumb-item>
+            <a-breadcrumb-item v-for="item in route.matched">{{item.meta.title}}</a-breadcrumb-item>
           </a-breadcrumb>
         </div>
         <div class="gvb_action_area">
