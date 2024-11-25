@@ -38,7 +38,7 @@
       <div class="gvb_head">
         <div class="gvb_bread_crumb">
           <a-breadcrumb>
-            <a-breadcrumb-item v-for="item in route.matched">{{item.meta.title}}</a-breadcrumb-item>
+            <a-breadcrumb-item v-for="item in route.matched" :key="item.name">{{item.meta.title}}</a-breadcrumb-item>
           </a-breadcrumb>
         </div>
         <div class="gvb_action_area">
@@ -69,7 +69,11 @@
         <span class="gvb_tab">用户列表</span>
       </div>
       <div class="gvb_container">
-        <div style="height: 1000px"></div>
+        <router-view v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component"></component>
+          </transition>
+        </router-view>
       </div>
     </main>
   </div>
