@@ -4,8 +4,10 @@ import { defineStore } from 'pinia'
 export const useStore = defineStore(
   'gvbStore',
   () => {
-    const someState = ref('hello pinia')
+
     const theme = ref(true) //true for light them e
+    const collapsed =ref(false)   //侧边栏收缩状态，默认不收缩
+
     const themeString = computed(() => (theme.value ? 'light' : 'dark'))
     function toggleTheme(localTheme?: boolean) {
       if (localTheme !== undefined) {
@@ -17,8 +19,12 @@ export const useStore = defineStore(
       document.documentElement.style.colorScheme = themeString.value
       document.body.setAttribute('arco-theme', themeString.value)
     }
+    function setCollapsed(localCollapsed :boolean) {
+      collapsed.value=localCollapsed
 
-    return { theme, themeString, toggleTheme ,someState}
+    }
+
+    return { theme, themeString, toggleTheme ,collapsed,setCollapsed}
   },
   {
     persist: true,

@@ -1,6 +1,6 @@
 <template>
   <div class="gvb_admin">
-    <aside>
+    <aside :class="{collapsed:useStore().collapsed}">
       <Gvb_logo></Gvb_logo>
       <Gvb_menu></Gvb_menu>
     </aside>
@@ -45,6 +45,7 @@ import Gvb_logo from '@/components/admin/gvb_logo.vue'
 import Gvb_menu from '@/components/admin/gvb_menu.vue'
 import { IconMenu, IconDown } from '@arco-design/web-vue/es/icon'
 import Gvb_theme from '@/components/global/gvb_theme.vue'
+import { useStore } from '@/stores/store'
 
 
 
@@ -57,14 +58,22 @@ import Gvb_theme from '@/components/global/gvb_theme.vue'
   aside {
     width: 240px;
     border-right: 1px solid var(--bg);
-    height: 100vh;
-
+    transition: all 0.3s;
+    position: relative;
+    &.collapsed {
+      width: 48px;
+      &~main {
+        width: calc(100% - 48px);
+      }
+    }
 
   }
   main {
     width: calc(100% - 240px);
     overflow-x: hidden;
     overflow-y:auto;
+    transition: all 0.3s
+  ;
     .gvb_head {
       width: 100%;
       height: 60px;
@@ -73,6 +82,7 @@ import Gvb_theme from '@/components/global/gvb_theme.vue'
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
+
       .gvb_action_area {
         display: flex;
         align-items: center;
