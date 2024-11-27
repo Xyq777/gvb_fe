@@ -9,9 +9,7 @@
         <Gvb_bread_crumb></Gvb_bread_crumb>
         <div class="gvb_action_area">
           <icon-menu class="action_icon"> </icon-menu>
-          <div class="gvb_theme">
-            <icon-sun class="action_icon"></icon-sun>
-          </div>
+          <gvb_theme></gvb_theme>
           <div class="gvb_user_info_menu">
             <a-dropdown>
               <div class="gvb_user_info_menu_dropdown">
@@ -45,7 +43,8 @@ import Gvb_tabs from '@/components/admin/gvb_tabs.vue'
 import Gvb_bread_crumb from '@/components/admin/gvb_bread_crumb.vue'
 import Gvb_logo from '@/components/admin/gvb_logo.vue'
 import Gvb_menu from '@/components/admin/gvb_menu.vue'
-import { IconMenu, IconSun, IconDown } from '@arco-design/web-vue/es/icon'
+import { IconMenu, IconDown } from '@arco-design/web-vue/es/icon'
+import Gvb_theme from '@/components/global/gvb_theme.vue'
 
 
 
@@ -59,6 +58,7 @@ import { IconMenu, IconSun, IconDown } from '@arco-design/web-vue/es/icon'
     width: 240px;
     border-right: 1px solid var(--bg);
     height: 100vh;
+
 
   }
   main {
