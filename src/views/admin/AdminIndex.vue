@@ -10,21 +10,7 @@
         <div class="gvb_action_area">
           <icon-menu class="action_icon"> </icon-menu>
           <gvb_theme></gvb_theme>
-          <div class="gvb_user_info_menu">
-            <a-dropdown>
-              <div class="gvb_user_info_menu_dropdown">
-                <img src="/public/image/capoo-02.jpg" alt="头像" />
-                <span>xyq</span>
-                <icon-down></icon-down>
-              </div>
-              <template #content>
-                <a-doption>Option 1</a-doption>
-                <a-doption disabled>Option 2</a-doption>
-                <a-doption>Option 3</a-doption>
-                <a-doption>Option 4</a-doption>
-              </template>
-            </a-dropdown>
-          </div>
+          <gvb_user_info_menu></gvb_user_info_menu>
         </div>
       </div>
       <gvb_tabs></gvb_tabs>
@@ -46,6 +32,7 @@ import Gvb_menu from '@/components/admin/gvb_menu.vue'
 import { IconMenu, IconDown } from '@arco-design/web-vue/es/icon'
 import Gvb_theme from '@/components/global/gvb_theme.vue'
 import { useStore } from '@/stores/store'
+import Gvb_user_info_menu from '@/components/admin/gvb_user_info_menu.vue'
 
 
 
@@ -58,7 +45,7 @@ import { useStore } from '@/stores/store'
   aside {
     width: 240px;
     border-right: 1px solid var(--bg);
-    transition: all 0.3s;
+    transition: width .3s;
     position: relative;
     &.collapsed {
       width: 48px;
@@ -91,22 +78,7 @@ import { useStore } from '@/stores/store'
           cursor: pointer;
           font-size: 16px;
         }
-        .gvb_user_info_menu {
-          .gvb_user_info_menu_dropdown {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-          }
 
-          img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-          }
-          span {
-            margin: 0 5px;
-          }
-        }
       }
     }
 
