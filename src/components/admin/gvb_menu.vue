@@ -9,7 +9,7 @@
       show-collapse-button
       @collapse="collapse"
     >
-      <template v-for="menu in menuList" :key="menu.key">
+      <template v-for="menu in menuList" :key="menu.name">
         <a-menu-item v-if="menu.child?.length === 0" :key="menu.name">
           <template #icon>
             <component :is="menu.icon"></component>
@@ -43,7 +43,6 @@ const selectedKeys =  ref([route.name])
 const openKeys = ref([route.matched[1].name])
 const DefaultCollapsed = false
 interface MenuType {
-  key: string
   title: string
   icon?: Component
   name: string // 路由名字
@@ -55,34 +54,32 @@ const clickMenu = (name: string) => {
 }
 
 const menuList: MenuType[] = [
-  { key: '1', title: '首页', icon: IconMenu, name: 'home', child: [] },
+  { title: '首页', icon: IconMenu, name: 'home', child: [] },
   {
-    key: '2',
+
     title: '个人中心',
     icon: IconUser,
     name: 'user_center',
-    child: [{ key: '2-1', title: '我的信息', icon: IconUser, name: 'user_info' }],
+    child: [{ title: '我的信息', icon: IconUser, name: 'user_info' }],
   },
   {
-    key: '3',
     title: '文章管理',
     icon: IconUser,
     name: 'article',
-    child: [{ key: '3-1', title: '文章列表', icon: IconUser, name: 'article_list' }],
+    child: [{ title: '文章列表', icon: IconUser, name: 'article_list' }],
   },
   {
-    key: '4',
+
     title: '用户管理',
     icon: IconUser,
     name: 'users',
-    child: [{ key: '4-1', title: '用户列表', icon: IconUser, name: 'user_list' }],
+    child: [{  title: '用户列表', icon: IconUser, name: 'user_list' }],
   },
   {
-    key: '5',
     title: '系统管理',
     icon: IconUser,
     name: 'system',
-    child: [{ key: '5-1', title: '菜单列表', icon: IconUser, name: 'menu_list' }],
+    child: [{ title: '菜单列表', icon: IconUser, name: 'menu_list' }],
   },
 ]
 function collapse(collapsed :boolean){
@@ -99,6 +96,7 @@ watch(() => route.name, () => {
 <style  lang="scss">
 .gvb_menu {
   .arco-menu {
+    width: 100%;
     position: inherit;
   }
 
