@@ -7,7 +7,7 @@ import userList from '../views/admin/users/UserList.vue'
 import articleList from '../views/admin/article/ArticleList.vue'
 import menuList from '../views/admin/system_settings/MenuList.vue'
 import home from '../views/admin/home/HomeIndex.vue'
-
+import login from '../views/login/LoginIndex.vue'
 
 
 
@@ -111,6 +111,14 @@ const router = createRouter({
           ]
         },
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component:login,
+      meta:{
+        title:"登录"
+      }
     }
   ],
 })
