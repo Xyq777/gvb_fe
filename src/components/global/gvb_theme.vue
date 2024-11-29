@@ -9,12 +9,10 @@
 
 import {IconSun, IconMoon} from "@arco-design/web-vue/es/icon";
 import {useStore} from "@/stores/store";
-import { onMounted } from 'vue'
+
 const store = useStore()
 
 
-onMounted(() => {
-  store.toggleTheme(store.theme)
-})
+
 
 </script>
